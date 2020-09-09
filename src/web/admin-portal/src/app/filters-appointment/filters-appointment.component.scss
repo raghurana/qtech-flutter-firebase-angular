@@ -1,0 +1,39 @@
+@import "../../colors.scss";
+
+.filters-grid-container {
+  display: grid;
+  grid-template-columns: 27% auto 20%;
+  color: white;
+  padding: 10px;
+  align-items: center;
+}
+
+.timepickers-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: flex-end;
+  justify-self: center;
+  width: 45%;
+  label {
+    font-size: x-small;
+    margin-left: 3px;
+  }
+}
+
+::ng-deep .mat-form-field-ripple {
+  background-color: white !important;
+}
+
+// ::ng-deep .ngx-mat-timepicker-table {
+//   width: 100% !important;
+// }
+
+::ng-deep .ngx-mat-timepicker-meridian {
+  .mat-stroked-button {
+    background-color: #e0e0e0 !important;
+  }
+  .mat-button-wrapper {
+    color: black;
+    font-size: smaller;
+  }
+}

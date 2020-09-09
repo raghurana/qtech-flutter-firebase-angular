@@ -1,0 +1,94 @@
+@import "../../colors.scss";
+
+.doctor-queue-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.doctor-queue-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-queue-header {
+  margin: 15px 5px 5px 5px;
+}
+
+// ------- Material Card Styles Start
+
+// mat-card-content > * {
+//    background-color: yellow;
+//    border: 2px solid blue;
+// }
+
+mat-card {
+  width: 235px;
+  margin: 5px;
+  padding: 0px;
+  border: 1px solid lightgray;
+  align-self: center;
+}
+
+mat-card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  font-weight: bold;
+}
+
+mat-card-content {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.material-icons.color_lightgray {
+  color: gray;
+}
+
+.card-left-content {
+  justify-self: end;
+  margin-left: 10px;
+}
+
+.card-right-content {
+  justify-self: end;
+}
+
+.start-time-label {
+  @extend .card-left-content;
+  font-weight: bold;
+}
+
+.start-button {
+  @extend .card-right-content;
+  margin-right: 10px;
+}
+
+.status-label {
+  color: gray;
+  text-align: center;
+  justify-self: start;
+  padding-left: 10px;
+}
+
+.code-label {
+  grid-column: 2 / 4;
+  padding-left: 10px;
+}
+
+.cancel-button:hover {
+  color: red;
+}
+
+.complete-button {
+  @extend .card-right-content;
+  grid-column: 3;
+}
+
+.complete-button:hover {
+  color: $app-color-purple;
+}
+
+// ------- Material Card Styles End

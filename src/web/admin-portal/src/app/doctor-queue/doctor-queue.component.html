@@ -1,0 +1,60 @@
+<div class="doctor-queue-row">
+  <div class="doctor-queue-column" *ngFor="let drAppts of doctorAppts">
+    <button mat-stroked-button class="doctor-queue-header">
+      {{ drAppts.doctorCode }}
+    </button>
+    <mat-card *ngFor="let appt of drAppts.appointments">
+      <mat-card-content>
+        <!-- Row 1 Starts -->
+        <div class="start-time-label">Start {{ appt.startTime | time }}</div>
+        <div class="status-label small-font">
+          {{ getAppointmentStatus(appt) }}
+        </div>
+        <mat-slide-toggle
+          class="start-button"
+          color="accent"
+          [checked]="appt.actualStartTime"
+          (change)="startToggleChanged(appt, $event)"
+        ></mat-slide-toggle>
+        <!-- Row 1 Ends -->
+
+        <!-- Row 2 Starts -->
+        <div class="card-left-content small-font">Start Actual</div>
+        <div class="code-label small-font">
+          {{ getActualStartTime(appt) | time }}
+          <span *ngIf="appt.durationMins > 0"
+            >/ {{ appt.durationMins }} min
+          </span>
+        </div>
+        <div class="card-left-content small-font">Doctor Code</div>
+        <div class="code-label small-font">{{ appt.doctorCode }}</div>
+        <!-- Row 2 Ends -->
+
+        <!-- Row 3 Starts -->
+        <div class="card-left-content small-font">Patient Code</div>
+        <div class="code-label small-font">{{ appt.patientCode }}</div>
+        <!-- Row 3 Ends -->
+
+        <!-- Row 4 Starts -->
+        <button
+          mat-icon-button
+          class="material-icons color_lightgray cancel-button"
+          (click)="changeApptStatus(appt, ApptStatusEnum.Cancelled)"
+          [disabled]="appt.status === ApptStatusEnum.Completed"
+        >
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          class="material-icons color_lightgray complete-button"
+          (click)="changeApptStatus(appt, ApptStatusEnum.Completed)"
+          [disabled]="!(appt.status === ApptStatusEnum.Started)"
+        >
+          <mat-icon>assignment_turned_in</mat-icon>
+        </button>
+        <!-- Row 4 Ends -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

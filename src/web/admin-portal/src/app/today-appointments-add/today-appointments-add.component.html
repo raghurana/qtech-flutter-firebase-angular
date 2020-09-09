@@ -1,0 +1,26 @@
+<div class="mainDiv">
+  <div class="header">Add New Appointments</div>
+  <div class="small-font">Use this screen to add new appointments in bulk.</div>
+  <ul class="small-font format-help-text">
+    <li>Each new appointment must be on a single line.</li>
+    <li>Line Format is: starttime-patientcode-doctorcode</li>
+    <li>
+      For example,
+      <span class="text-bold">210pm-js321-daf</span>
+    </li>
+    <li>where js, is initials for a patient John Smith</li>
+    <li>321, is the last 3 digits of patient's mobile number</li>
+    <li>and, daf is code for Doctor Alexander Fleming</li>
+  </ul>
+  <textarea class="scheduleTextArea" [(ngModel)]="inputText"></textarea>
+  <div>
+    <button
+      mat-raised-button
+      color="primary"
+      class="saveButton"
+      (click)="addNew()"
+    >
+      Save
+    </button>
+  </div>
+</div>

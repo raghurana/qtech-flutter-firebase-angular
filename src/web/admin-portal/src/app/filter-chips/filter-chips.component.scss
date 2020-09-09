@@ -1,0 +1,24 @@
+mat-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-form-field-label {
+  color: white !important;
+}
+::ng-deep .mat-form-field-underline {
+  background-color: white !important;
+  caret-color: white !important;
+}
+
+::ng-deep .mat-input-element {
+  caret-color: white !important;
+}
+
+::ng-deep .mat-chip {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+::ng-deep .mat-chip-list-wrapper {
+  min-height: 70px !important;
+}

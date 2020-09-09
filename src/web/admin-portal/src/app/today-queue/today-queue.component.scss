@@ -1,0 +1,58 @@
+@import "../../colors.scss";
+
+.no-data-container {
+  display: grid;
+  height: 100%;
+  background-color: lightgray;
+  div {
+    margin: auto;
+    color: grey;
+    font-size: large;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3),
+      0px -1px 0px rgba(0, 0, 0, 0.116);
+  }
+}
+
+.add-fab {
+  z-index: 100;
+  position: fixed;
+  top: 20px;
+  right: 50px;
+}
+
+.filters-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  > mat-icon {
+    margin-right: 10px;
+  }
+}
+
+mat-expansion-panel {
+  background: $app-color-dark-navy;
+}
+
+.expansion-panel {
+  color: white;
+  mat-panel-title > div {
+    color: white;
+  }
+}
+
+// Required to paint cheveron white
+::ng-deep .expansion-panel > .mat-expansion-indicator:after {
+  color: white;
+}
+
+::ng-deep .mat-accordion .mat-expansion-panel:first-of-type {
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+mat-drawer-container {
+  top: 60px;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+}

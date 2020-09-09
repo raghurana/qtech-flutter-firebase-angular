@@ -1,0 +1,62 @@
+<div class="app-title-bar">Today's Schedule</div>
+
+<ng-template #noData>
+  <div class="no-data-container">
+    <div>No Appointments Added</div>
+  </div>
+</ng-template>
+
+<div class="add-fab">
+  <button mat-fab (click)="drawer?.toggle()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<mat-drawer-container>
+  <mat-drawer #drawer mode="over" position="end" [(opened)]="isSidebarOpen">
+    <app-today-appointments-add
+      [collectionName]="todayCollectionName"
+      (savedSuccessfully)="onNewAppointmentsAddedSuccessfully($event)"
+    ></app-today-appointments-add>
+  </mat-drawer>
+
+  <mat-drawer-content *ngIf="firebaseAppts?.length; else noData">
+    <!-- Filters Start -->
+    <mat-accordion>
+      <div>
+        <mat-expansion-panel [expanded]="isFiltersExpanded">
+          <mat-expansion-panel-header class="expansion-panel">
+            <mat-panel-title>
+              <div class="filters-label">
+                <mat-icon>filter_list</mat-icon>
+                Filters
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-filters-appointment
+            [allDoctors]="allDoctors"
+            [selectedDoctors]="selectedDoctors"
+            [allStatuses]="allStatuses"
+            [selectedStatuses]="selectedStatuses"
+            [startTimeFrom]="startTimeFrom"
+            [startTimeTo]="startTimeTo"
+            [startTimeChanged]="startTimeChanged"
+          ></app-filters-appointment>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
+    <!-- Filters End -->
+
+    <app-doctor-queue
+      *ngIf="doctorAppts?.length; else noFilterMatch"
+      [doctorAppts]="doctorAppts"
+      (appointmentStatusUpdate)="onAppointmentStatusChanged($event)"
+    ></app-doctor-queue>
+  </mat-drawer-content>
+
+  <ng-template #noFilterMatch>
+    <div class="center">
+      <div>No matching appointments for selected filters</div>
+    </div>
+  </ng-template>
+</mat-drawer-container>

@@ -1,0 +1,37 @@
+<div class="filters-grid-container">
+  <!-- 1 --->
+  <div>
+    <app-filter-chips
+      placeholderText="Statuses"
+      [allItems]="allStatuses"
+      [selectedItems]="selectedStatuses"
+    ></app-filter-chips>
+  </div>
+
+  <!-- 2 --->
+  <div class="timepickers-grid-container">
+    <label>Start from</label>
+    <label>Start to</label>
+    <ngx-mat-timepicker
+      [(ngModel)]="startTimeFrom"
+      [showSpinners]="showSpinners"
+      [enableMeridian]="enableMeridian"
+      (ngModelChange)="onStartTimeChanged('from')"
+    ></ngx-mat-timepicker>
+    <ngx-mat-timepicker
+      [(ngModel)]="startTimeTo"
+      [showSpinners]="showSpinners"
+      [enableMeridian]="enableMeridian"
+      (ngModelChange)="onStartTimeChanged('to')"
+    ></ngx-mat-timepicker>
+  </div>
+
+  <!-- 3 --->
+  <div>
+    <app-filter-chips
+      placeholderText="Doctors"
+      [allItems]="allDoctors"
+      [selectedItems]="selectedDoctors"
+    ></app-filter-chips>
+  </div>
+</div>

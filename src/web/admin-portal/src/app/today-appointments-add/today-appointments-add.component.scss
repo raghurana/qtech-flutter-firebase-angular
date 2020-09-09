@@ -1,0 +1,33 @@
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  justify-items: center;
+  .header {
+    font-size: large;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.scheduleTextArea {
+  height: 200px;
+  resize: none;
+  margin-bottom: 5px;
+  min-width: 300px;
+}
+
+.saveButton {
+  width: 150px;
+  border-radius: 20px;
+  float: right;
+}
+
+.format-help-text {
+  margin: 5px 0px 10px 0px;
+  list-style: disc;
+}
+
+.text-bold {
+  font-weight: bold;
+}
